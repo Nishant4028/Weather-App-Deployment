@@ -1,0 +1,57 @@
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment files
+.env
+*.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Git and version control
+.git/
+.gitignore
+
+# Docker build files
+Dockerfiles/
+.dockerignore
+
+# CI/CD pipeline files
+build-pipeline.yml
+*.yaml
+*.yml
+
+# IDE/editor configs
+.vscode/
+.idea/
+*.swp
+*.sublime-project
+*.sublime-workspace
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+
+# Node/npm (if added later)
+node_modules/
+npm-debug.log
+
+# Test and coverage
+tests/
+coverage/
+*.cover
+*.coverage
+htmlcov/
+
+# Misc
+*.zip
+*.tar
+*.gz
+*.egg-info/
+
+Azure-Build-pipeline.yaml
