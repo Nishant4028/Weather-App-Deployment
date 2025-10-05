@@ -54,4 +54,6 @@ htmlcov/
 *.gz
 *.egg-info/
 
-Azure-Build-pipeline.yaml
+App_image_build_and_push_to_ACR.yml
+terraform-provision-aks-cluster-pipeline.yml
+README.md
