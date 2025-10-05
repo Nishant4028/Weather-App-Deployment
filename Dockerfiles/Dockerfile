@@ -4,13 +4,14 @@ FROM python:3.10-slim
 WORKDIR /app
 
 # Copy requirements and install dependencies
-COPY ../Weather-app-source-files/requirements.txt .
+COPY Weather-app-source-files/requirements.txt .
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the full source code
-COPY ../Weather-app-source-files/ .
+COPY Weather-app-source-files/ .
 
-# Expose port 
+# Expose port
 EXPOSE 5000
 
 # Run the Flask app
