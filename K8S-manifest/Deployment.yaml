@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weather-app
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: weather-app-image
+  template:
+    metadata:
+      labels:
+        app: weather-app-image
+    spec:
+      containers:
+        - name: weather-app-image
+          image: nishant.azurecr.io/weatherappdeployment:52
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+              protocol: TCP
+      imagePullSecrets:
+        - name: acr-secret
