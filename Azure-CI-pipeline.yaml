@@ -6,8 +6,8 @@ trigger:
 
 pool:
   name: NishantAgent
-  demands:
-    - agent.name -equals nishanagent1
+  #demands:
+  #  - agent.name -equals nishanagent1
 
 variables:
   imageName: 'flask-Weather-app'  #  app name
