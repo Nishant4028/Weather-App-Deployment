@@ -1,43 +1,14 @@
 trigger:
-  paths:
-    include:
-      - Weather-app-source-files/**
-      - Dockerfiles/Dockerfile
+  none  # Manual run only for testing
 
 pool:
   name: az-devagent
   demands:
-  - agent.name -equals az-agent1
+  - agent.name -equals az-agent1  # Replace with your actual agent pool name
 
-variables:
-  imageName: 'flask-Weather-app'  #  app name
-  acrName: 'nishant.azurecr.io'  #  ACR login server
-steps:
-#  Step 1: Checkout Code
-  - task: Checkout@1
-    displayName: 'Pull source code from GitHub'
-
-#  Step 2: Install Docker (if needed)
-  - task: DockerInstaller@0
-    displayName: 'Install Docker'
-
-#  Step 3: Build Docker Image
-  - script: |
-      docker build -t $(acrName)/$(imageName):$(Build.BuildId) -f Dockerfiles/Dockerfile .
-    displayName: 'Build Docker Image'
-
-#  Step 4: Login to Azure Container Registry
-  - script: |
-      echo $(ACR_PASSWORD) | docker login $(acrName) -u $(ACR_USERNAME) --password-stdin
-    displayName: 'Authenticate with ACR'
-
-#  Step 5: Push Docker Image with Build Tag
-  - script: |
-      docker push $(acrName)/$(imageName):$(Build.BuildId)
-    displayName: 'Push Image with Build Tag'
-
-#  Step 6: Tag and Push as Latest
-  - script: |
-      docker tag $(acrName)/$(imageName):$(Build.BuildId) $(acrName)/$(imageName):latest
-      docker push $(acrName)/$(imageName):latest
-    displayName: 'Tag and Push Latest'
+jobs:
+- job: HelloWorldJob
+  displayName: 'Test Self-Hosted Agent'
+  steps:
+    - script: echo "✅ Hello, Nishant! Your agent is working!"
+      displayName: 'Say Hello'
