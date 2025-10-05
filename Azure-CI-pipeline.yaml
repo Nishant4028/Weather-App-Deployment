@@ -5,9 +5,9 @@ trigger:
       - Dockerfiles/Dockerfile
 
 pool:
-  vmImage: 'ubuntu-latest'
-  #demands:
-  #  - agent.name -equals nishanagent1
+  name: az-devagent
+  demands:
+  - agent.name -equals az-agent1
 
 variables:
   imageName: 'flask-Weather-app'  #  app name
