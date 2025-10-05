@@ -15,7 +15,7 @@ variables:
   dockerRegistryServiceConnection: '2e22d47c-be9f-4aa3-8037-74c43bba8831'
   imageRepository: 'weatherappdeployment'
   containerRegistry: 'nishant.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfiles/Dockerfile'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
 
 pool:
