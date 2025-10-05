@@ -6,7 +6,6 @@ trigger:
   paths:
     include:
     - Weather-app-source-files/**
-    - Dockerfiles/Dockerfile
 
 resources:
 - repo: self
@@ -36,8 +35,7 @@ stages:
       inputs:
         command: buildAndPush
         repository: $(imageRepository)
-        dockerfile: $(dockerfilePath)
-        context: '$(Build.SourcesDirectory)'
+        dockerfile: $(dockerfilePath) 
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
