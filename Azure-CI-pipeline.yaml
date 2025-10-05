@@ -5,7 +5,7 @@ trigger:
       - Dockerfiles/Dockerfile
 
 pool:
-  name: NishantAgent
+  vmImage: 'ubuntu-latest'
   #demands:
   #  - agent.name -equals nishanagent1
 
